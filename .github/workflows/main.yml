@@ -26,7 +26,7 @@ jobs:
           PIPENV_IGNORE_VIRTUALENVS: '1'
         run: |
           pip install pipenv
-          pipenv install --dev
+          pipenv install --dev --python=$(which python)
 
       - name: Run Flake8
         run: |
