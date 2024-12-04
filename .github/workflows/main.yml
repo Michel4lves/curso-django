@@ -25,12 +25,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pipenv
 
-      - name: Add pipenv to PATH
-        run: |
-          export PATH="$(python -m site --user-base)/bin:$PATH"
-          echo "Updated PATH: $PATH"
-          pipenv --version
-
       - name: Install dependencies
         env:
           PIPENV_IGNORE_VIRTUALENVS: '1'
@@ -45,7 +39,6 @@ jobs:
 
       - name: Run Flake8
         run: |
-          export PATH="$(python -m site --user-base)/bin:$PATH"
           pipenv run flake8 .
 
   safety-cli:
