@@ -28,6 +28,9 @@ jobs:
           pip install pipenv
           pipenv install --dev --python=$(which python)
 
+      - name: Generate requirements.txt
+        run: pipenv requirements > requirements.txt
+
       - name: Run Flake8
         run: |
           pipenv run flake8 .
@@ -37,9 +40,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Generate requirements.txt
-        run: pipenv requirements > requirements.txt
-
       - name: Check out code
         uses: actions/checkout@v4
 
