@@ -31,6 +31,13 @@ jobs:
           python -m pip install pipenv
           pipenv install --dev --python=$(which python)
 
+      - name: Debug Pipenv Installation
+        run: |
+          pipenv --version
+          echo "PATH: $PATH"
+          which pipenv
+          pipenv --venv
+
       - name: Add Pipenv to PATH
         run: |
           echo "$(python -m site --user-base)/bin" >> $GITHUB_PATH
@@ -47,7 +54,9 @@ jobs:
           echo "$(python -m site --user-base)/bin" >> $GITHUB_PATH
 
       - name: Run Flake8
-        run: pipenv run flake8 .
+        run: |
+          pipenv --version
+          pipenv run flake8 .
 
   safety-cli:
     needs: setup-python-dependencies
