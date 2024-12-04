@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Generate requirements.txt
-      - run: pipenv lock --requirements > requirements.txt
+        run: pipenv requirements > requirements.txt
 
       - name: Check out code
         uses: actions/checkout@v4
