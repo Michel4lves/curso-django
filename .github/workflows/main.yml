@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  setup-python-dependencies:
+  lint-and-safety:
     runs-on: ubuntu-latest
     outputs:
       python-path: ${{ steps.set-python-path.outputs.python-path }}
