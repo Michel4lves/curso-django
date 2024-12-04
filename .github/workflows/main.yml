@@ -35,13 +35,13 @@ jobs:
         run: |
           echo "$(python -m site --user-base)/bin" >> $GITHUB_PATH
 
-      - name: Generate requirements.txt
-        run: pipenv requirements > requirements.txt
-
   flake8-lint:
     needs: setup-python-dependencies
     runs-on: ubuntu-latest
     steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
       - name: Add Pipenv to PATH
         run: |
           echo "$(python -m site --user-base)/bin" >> $GITHUB_PATH
@@ -53,6 +53,9 @@ jobs:
     needs: setup-python-dependencies
     runs-on: ubuntu-latest
     steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
       - name: Add Pipenv to PATH
         run: |
           echo "$(python -m site --user-base)/bin" >> $GITHUB_PATH
