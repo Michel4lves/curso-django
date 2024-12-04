@@ -31,12 +31,13 @@ jobs:
           python -m pip install pipenv
           pipenv install --dev --python=$(which python)
 
-      - name: Debug Pipenv Installation
+      - name: Ensure pipenv is in PATH
         run: |
-          pipenv --version
-          echo "PATH: $PATH"
-          which pipenv
-          pipenv --venv
+          echo "Pipenv path check:"
+          echo "$(python -m site --user-base)/bin"
+          echo "PATH=$PATH"
+          ls -l "$(python -m site --user-base)/bin"
+          which pipenv || echo "pipenv not found"
 
       - name: Add Pipenv to PATH
         run: |
