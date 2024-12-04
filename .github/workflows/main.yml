@@ -26,10 +26,10 @@ jobs:
           python -m pip install pipenv
 
       - name: Add pipenv to PATH
-        run: echo "::add-path::$(python -m site --user-base)/bin"
-
-      - name: Verify pipenv installation
-        run: pipenv --version
+        run: |
+          export PATH="$(python -m site --user-base)/bin:$PATH"
+          echo "Updated PATH: $PATH"
+          pipenv --version
 
       - name: Install dependencies
         env:
@@ -44,7 +44,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Flake8
-        run: pipenv run flake8 .
+        run: |
+          export PATH="$(python -m site --user-base)/bin:$PATH"
+          pipenv run flake8 .
 
   safety-cli:
     needs: setup-python-dependencies
