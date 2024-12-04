@@ -27,21 +27,36 @@ jobs:
         env:
           PIPENV_IGNORE_VIRTUALENVS: '1'
         run: |
-          pip install pipenv
+          python -m pip install --upgrade pip
+          python -m pip install pipenv
           pipenv install --dev --python=$(which python)
+
+      - name: Add Pipenv to PATH
+        run: |
+          echo "$(python -m site --user-base)/bin" >> $GITHUB_PATH
+
+      - name: Generate requirements.txt
+        run: pipenv lock --requirements > requirements.txt
 
   flake8-lint:
     needs: setup-python-dependencies
     runs-on: ubuntu-latest
     steps:
-      - name: Run Flake8
+      - name: Add Pipenv to PATH
         run: |
-          pipenv run flake8 .
+          echo "$(python -m site --user-base)/bin" >> $GITHUB_PATH
+
+      - name: Run Flake8
+        run: pipenv run flake8 .
 
   safety-cli:
     needs: setup-python-dependencies
     runs-on: ubuntu-latest
     steps:
+      - name: Add Pipenv to PATH
+        run: |
+          echo "$(python -m site --user-base)/bin" >> $GITHUB_PATH
+
       - name: Run Safety CLI to check for vulnerabilities
         uses: pyupio/safety-action@v1
         with:
