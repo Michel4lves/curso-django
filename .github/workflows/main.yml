@@ -36,7 +36,7 @@ jobs:
           echo "$(python -m site --user-base)/bin" >> $GITHUB_PATH
 
       - name: Generate requirements.txt
-        run: pipenv lock --requirements > requirements.txt
+        run: pipenv requirements > requirements.txt
 
   flake8-lint:
     needs: setup-python-dependencies
