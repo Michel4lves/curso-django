@@ -57,13 +57,6 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        env:
-          PIPENV_IGNORE_VIRTUALENVS: '1'
-        run: |
-          pip install pipenv
-          pipenv install --dev --python=$(which python)
-
       - name: Run pytest
         run: |
           pipenv run pytest --cov=cursodjango --maxfail=5 --disable-warnings --cov-report=xml
