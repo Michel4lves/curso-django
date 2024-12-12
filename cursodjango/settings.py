@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cursodjango.base',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -122,43 +123,97 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', default='').strip()
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-# STORAGE CONFIGURATION IN S3 AWS
-# ------------------------------------------------------------------------
-if AWS_ACCESS_KEY_ID:
+if AWS_STORAGE_BUCKET_NAME == '':
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+else:
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
-    AWS_PRELOAD_METADATA = True
-    AWS_AUTO_CREATE_BUCKET = False
-    AWS_QUERYSTRING_AUTH = False
-    AWS_S3_CUSTOM_DOMAIN = None
-    AWS_DEFAULT_ACL = 'private'
 
-    # Static Assets
-    # ------------------------------------------------------------------------------
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    # STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
-    STATIC_S3_PATH = 'static'
-    STATIC_ROOT = f'/{STATIC_S3_PATH}/'
-    STATIC_URL = f'//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{STATIC_S3_PATH}/'
-    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+    STORAGES = {
+        "staticfiles": {
+            "BACKEND": "storages.backends.s3.S3Storage",
+            "OPTIONS": {
 
-    # Upload Media Folder
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    # DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage' (é antigo)
-    DEFAULT_S3_PATH = 'media'
-    MEDIA_ROOT = f'/{DEFAULT_S3_PATH}/'
-    MEDIA_URL = f'//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{DEFAULT_S3_PATH}/'
+            },
+        },
+    }
 
-    INSTALLED_APPS.append('s3_folder_storage')
-    INSTALLED_APPS.append('storages')
+
+
+
+
+
+
+
+
+
+# # Configurações AWS
+# AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+#
+# if AWS_ACCESS_KEY_ID:
+#     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+#     AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+#
+#     AWS_S3_REGION_NAME = config("AWS_S3_REGION_NAME")
+#
+#     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400',}
+#     AWS_QUERYSTRING_AUTH = False
+#
+#     # Configurações de armazenamento no S3
+#     AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com"
+#
+#     # Configuração de arquivos estáticos
+#     STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
+#     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#
+#     # Configuração de arquivos de mídia
+#     DEFAULT_FILE_STORAGE = 'cursodjango.custom_storages.MediaStorage'
+#     MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
+
+    # Configuração de e-mail usando SES
+    # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    # EMAIL_HOST = f'email-smtp.{AWS_S3_REGION_NAME}.amazonaws.com'
+    # EMAIL_PORT = 587
+    # EMAIL_USE_TLS = True
+    # EMAIL_HOST_USER = os.getenv('AWS_SES_ACCESS_KEY_ID')
+    # EMAIL_HOST_PASSWORD = os.getenv('AWS_SES_SECRET_ACCESS_KEY')
+    # DEFAULT_FROM_EMAIL = 'seu_email@dominio.com'
+
+
+
+
+
+
+
+
+# # AWS S3 Storage Configuration
+# AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+# AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+#
+# if AWS_ACCESS_KEY_ID:
+#     # S3 Specific Settings
+#     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+#     AWS_QUERYSTRING_AUTH = False  # No query parameter authentication
+#     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.sa-east-1.amazonaws.com'
+#
+#     # Static Files Storage
+#     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+#
+#     # Media Files Storage
+#     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+#
+#     # Append storages app if not already included
+#     if 'storages' not in INSTALLED_APPS:
+#         INSTALLED_APPS.append('storages')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
