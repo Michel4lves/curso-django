@@ -137,8 +137,9 @@ else:
         "staticfiles": {
             "BACKEND": "storages.backends.s3.S3Storage",
             "OPTIONS": {
-                # 'default_acl': 'public-read'
-                'default_acl': None
+                'default_acl': None,
+                'location': 'static/',
+                'file_overwrite': False
             },
         },
     }
