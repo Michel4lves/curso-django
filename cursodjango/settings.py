@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'collectfasta',
     'django.contrib.staticfiles',
     'cursodjango.base',
-    # 'storages',
 ]
 
 MIDDLEWARE = [
@@ -129,9 +129,13 @@ if AWS_STORAGE_BUCKET_NAME == '':
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     MEDIA_URL = 'media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+    COLLECTFASTA_ENABLED = False
 else:
     AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+
+    COLLECTFASTA_ENABLED = True
+    COLLECTFASTA_STRATEGY = 'collectfasta.strategies.boto3.Boto3Strategy'
 
     STORAGES = {
         "staticfiles": {
