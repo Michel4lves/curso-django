@@ -17,7 +17,7 @@ SUPERUSER_USERNAME = os.getenv('SUPERUSER_USERNAME', 'admin')
 SUPERUSER_EMAIL = os.getenv('SUPERUSER_EMAIL', 'admin@example.com')
 SUPERUSER_PASSWORD = os.getenv('SUPERUSER_PASSWORD', 'adminpassword')
 
-if not User.objects.filter(username=SUPERUSER_EMAIL).exists():
+if not User.objects.filter(email=SUPERUSER_EMAIL).exists():
 # if not User.objects.filter(username=SUPERUSER_USERNAME).exists():
     User.objects.create_superuser(
         username=SUPERUSER_USERNAME,
