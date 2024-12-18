@@ -5,8 +5,6 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-from django.contrib import auth
-
 
 class UserManager(BaseUserManager):
     use_in_migrations = True
