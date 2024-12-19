@@ -81,7 +81,10 @@ INTERNAL_IPS = config('INTERNAL_IPS', cast=Csv(), default='127.0.0.1')
 if DEBUG:
     INSTALLED_APPS.append("debug_toolbar",)
     MIDDLEWARE.insert(0, "debug_toolbar.middleware.DebugToolbarMiddleware")
-
+    DEBUG_TOOLBAR_CONFIG = {
+        'DISABLE_PANELS': ['debug_toolbar.panels.staticfiles.StaticFilesPanel'],
+        'SHOW_TOOLBAR_CALLBACK': lambda request: True,
+    }
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -149,6 +152,12 @@ else:
                 'default_acl': None,
                 'location': 'static/',
                 'file_overwrite': False
+            },
+        },
+        "media": {
+            "BACKEND": "storages.backends.s3.S3Storage",
+            "OPTIONS": {
+                "location": "media/",
             },
         },
     }
