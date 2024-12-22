@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(45deg, #ffffff, #0a4416);
+    color: #f8f8f8;
+}
+
+.container-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.blink {
+    animation: animate1 2s alternate infinite;
+}
+
+@keyframes animate1 {
+    0%, 100% {
+        color: #ffffff;
+        filter: drop-shadow(0 0 0px #0a4416) drop-shadow(0 0 50px #0a4416);
+    }
+    50% {
+        color: #ffee2e;
+        filter: drop-shadow(0 0 20px #0a4416) drop-shadow(0 0 50px #0a4416);
+    }
+}
+
+.transp {
+    background-color: transparent;
+}

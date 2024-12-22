@@ -1,0 +1,194 @@
+<!doctype html>
+{% load static %}
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Página exemplo de um curso de django">
+        <meta name="author" content="Michel Alves">
+        <title>Curso de Python e Django</title>
+        <link 
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+            crossorigin="anonymous"
+        >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <div class="container-page">
+            <div class="container-fluid">
+
+                <div class="row mb-5 my-3 fw-bold">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-expand-lg style="background-color: linear-gradient(45deg, #ffffff, #0a4416);">
+                            <div class="container-fluid">
+                                <a class="navbar-brand text-light" href="#">Navbar</a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-light" href="#">Link</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Dropdown
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                <li><hr class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                                        </li>
+                                    </ul>
+                                    <!-- <form class="d-flex" role="search">
+                                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-success" type="submit">Search</button>
+                                    </form> -->
+                                    <div>
+                                        <button type="button" class="btn btn-success">Login</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+
+                <div class="row my-5 mb-5">
+                    <div class="col-md-12">
+                        <div class="jumbotron">
+                            <h2 class="blink">
+                                NOVO CURSO!!!
+                            </h2>
+                            <div class="mx-1 my-5 m-sm-5">
+                                <img src="{% static 'img/python-django.png' %}" class="img-fluid rounded mx-auto d-block" alt="django-picture" style="width: 900px;">
+                            </div>
+                            <h2 class="text-center fw-bold">
+                                Aprenda Python e Django: Domine o Desenvolvimento Web!
+                            </h2>
+                            <p class="text-center fs-5">
+                                Quer aprender a criar aplicações web incríveis e conquistar o mercado de tecnologia? 
+                            </p>
+                            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner text-warning">
+                                    <div class="carousel-item active">
+                                        <h2 class="text-center">100% online e prático</h2>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h2 class="text-center">Aprenda desde o básico até o avançado</h2>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h2 class="text-center">Ideal para iniciantes e quem já programa</h2>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <h2 class="text-center">Certificado reconhecido ao final</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6 px-3 text-dark">
+                        <img alt="instrutor-picture" src="{% static 'img/instrutor.png' %}" class="border border-3 border-success img-fluid rounded mx-auto d-block" />
+                        <dl>
+                            <dt>
+                                <h3 class="my-3">
+                                    Conheça o seu Instrutor: <span class="text-warning">Carlos Mendes</span>
+                                </h3>
+                            </dt>
+                            <dd>
+                                Carlos Mendes é o instrutor ideal para guiar você no universo do desenvolvimento web com Python e Django. Com mais de 10 anos de experiência na área, ele já trabalhou em grandes empresas de tecnologia e foi responsável por desenvolver sistemas utilizados por milhares de usuários em todo o Brasil.
+                            </dd>
+                            <dd>
+                                Além de programador, ele é apaixonado por ensinar e é autor de diversos tutoriais sobre desenvolvimento web.
+                            </dd>
+                            <dd>
+                                Carlos também é fluente em inglês e está sempre de olho nas tendências globais de tecnologia para trazer o melhor conteúdo para seus alunos.
+                            </dd>
+                            <dd>
+                                Com Carlos Mendes, você não apenas aprende a programar, mas também descobre como se destacar no mercado de trabalho e criar soluções inovadoras. 
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mx-sm-5 px-sm-4">
+                            <div class="grid gap-3 ">
+                                <div class="p-2 g-col-6 text-warning fs-3">O que você vai aprender:</div>
+                                <div class="p-2 g-col-6 fs-5"><span class="text-success me-3"><i class="fab fa-python"></i></span>Fundamentos do Python</div>
+                                <div class="p-2 g-col-6 fs-5"><span class="text-success me-3"><i class="fab fa-python"></i></span>Criação de aplicações web com Django</div>
+                                <div class="p-2 g-col-6 fs-5"><span class="text-success me-3"><i class="fab fa-python"></i></span>Banco de dados e autenticação de usuários</div>
+                                <div class="p-2 g-col-6 fs-5"><span class="text-success me-3"><i class="fab fa-python"></i></span>Deploy de aplicações para a web</div>
+                                <div class="p-2 g-col-6 fs-5">E muito mais...</div>
+                            </div>
+                            <div class="grid gap-3 my-5 border border-3 rounded border-warning p-4">
+                                <div class="p-2 g-col-6 fs-5 text-warning">
+                                    <span class="text-warning ms-1 me-2"><i class="far fa-calendar"></i></span>
+                                    Início das aulas:
+                                    <span class="text-light">2025</span>
+                                </div>
+                                <div class="p-2 g-col-6 fs-5 text-warning">
+                                    <span class="text-warning me-1"><i class="fas fa-laptop"></i></span>
+                                    Formato:
+                                    <span class="text-light">Online (ao vivo / gravado)</span>
+                                </div>
+                                <div class="p-2 g-col-6 fs-5 text-warning">
+                                    <span class="text-warning ms-2 me-2"><i class="fas fa-dollar-sign"></i></span>
+                                    Investimento:
+                                    <span class="text-danger fw-bold">Somente R$ 199,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row my-5 mb-5">
+                    <div class="col-md-12">
+                        <p class="fs-2 text-center text-success fw-bold">Não perca tempo!</p>
+                        <p class="fs-3 text-center text-dark">Inscreva-se agora e dê o primeiro passo para sua carreira como desenvolvedor web.</p>
+                    </div>
+                    <div class="d-grid gap-2 col-sm-4 mx-auto my-3">
+                        <button type="button" class="btn btn-warning">GARANTIR MINHA VAGA!</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <footer class="bg-success d-flex justify-content-end align-items-center">
+            <div class="d-flex justify-content-end align-items-center">
+                <p class="mt-3">Página criada pelo grupo:</p>
+                <img 
+                    src="{% static 'img/hippo_logo.png' %}"
+                    class="img-fluid rounded"
+                    alt="django-picture" 
+                    style="width: 100px;"
+                >
+            </div>
+        </footer>
+
+
+        <script 
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+            crossorigin="anonymous"
+        ></script>
+
+    </body>
+</html>
