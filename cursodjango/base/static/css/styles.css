@@ -33,3 +33,7 @@ body {
 .transp {
     background-color: transparent;
 }
+
+.field-shift {
+    display: none;
+}
