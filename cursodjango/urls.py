@@ -22,6 +22,7 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('cursodjango.base.urls')),
+    path('preview/', include('cursodjango.vpreview.urls')),
 ]
 if settings.DEBUG:
     urlpatterns.append(

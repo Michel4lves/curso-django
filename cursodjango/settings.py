@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'storages',
     'cursodjango.base',
+    'cursodjango.vpreview',
 ]
 
 MIDDLEWARE = [
