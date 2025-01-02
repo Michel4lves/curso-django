@@ -14,7 +14,5 @@ def video(request, slug):
             'vimeo_titulo': 'Variáveis-em-Python'
         }
     }
-
     video = videos[slug]
-
     return render(request, 'vpreview/video.html', context={'video': video})
