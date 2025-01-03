@@ -1,0 +1,54 @@
+{% load static %}
+
+<div class="row my-5 mb-5">
+    <div class="col-md-12">
+        <p class="fs-2 text-center text-success fw-bold">Não perca tempo!</p>
+        <p class="fs-3 text-center text-dark">Inscreva-se agora e dê o primeiro passo para sua carreira como desenvolvedor web.</p>
+    </div>
+    <div class="d-grid gap-2 col-sm-4 mx-auto my-3">
+        <button type="button" class="btn btn-warning" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">Entrar na Lista de Espera</button>
+    </div>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item border border-0 rounded">
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body bg-warning-subtle">
+                    <form class="row gy-2 gx-3 align-items-center justify-content-center" action="https://onrender.us7.list-manage.com/subscribe/post" method="POST">
+
+                        <!-- people should not fill these in and expect good things -->
+                        <div class="field-shift" aria-label="Please leave the following three fields empty" aria-hidden="true">
+                            <label for="b_name">Name: </label>
+                            <input type="text" name="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name">
+
+                            <label for="b_email">Email: </label>
+                            <input type="email" name="b_email" tabindex="-1" value="" placeholder="youremail@gmail.com" id="b_email">
+
+                            <label for="b_comment">Comment: </label>
+                            <textarea name="b_comment" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
+                        </div>
+
+                        <input type="hidden" name="u" value="f514587aea3e8ace1dc87fd04">
+                        <input type="hidden" name="id" value="9c1f3dceb3">
+
+                        <div class="col-auto">
+                            <label class="visually-hidden" for="MERGE1">Name</label>
+                            <input type="text" name="MERGE1" id="MERGE1" size="25" value="" class="form-control" placeholder="Seu Nome:">
+                        </div>
+                        <div class="col-auto">
+                            <label class="visually-hidden" for="MERGE0">Email</label>
+                            <div class="input-group">
+                                <div class="input-group-text">@</div>
+                                <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="" class="form-control" placeholder="Seu Email:">
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-success" name="submit">Inscrever-se</button>
+                        </div>
+                        <input type="hidden" name="ht" value="dc3a73315201022515c2e6747f5f7b4f63413348:MTczNTM2MjY3MS4yODUy">
+                        <input type="hidden" name="mc_signupsource" value="hosted">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
