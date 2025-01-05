@@ -7,3 +7,6 @@ AWS_ACCESS_KEY_ID = Set your AWS IAM access key id
 AWS_SECRET_ACCESS_KEY = Set your AWS IAM secret access key
 INTERNAL_IPS=127.0.0.1
 SENTRY_DSN
+POSTGRES_USER= set your postgres user
+POSTGRES_PASSWORD= set your postgres password
+POSTGRES_DB= set your postgres database name
